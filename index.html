@@ -1,0 +1,273 @@
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>ñomñom - Menú de Budines</title>  
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">  
+    <style>  
+        :root {  
+            --crema: #FDF5E6;  
+            --marron: #4B3621;  
+            --rosa: #FFD1DC;  
+            --rosa-hover: #ffb5c7;  
+            --blanco: #ffffff;  
+        }  
+
+        body {  
+            margin: 0;  
+            padding: 0;  
+            font-family: 'Quicksand', sans-serif;  
+            background-color: var(--crema);  
+            color: var(--marron);  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+        }  
+
+        header {  
+            text-align: center;  
+            padding: 40px 20px;  
+            width: 100%;  
+            box-sizing: border-box;  
+        }  
+
+        .logo {  
+            width: 120px;  
+            height: 120px;  
+            border-radius: 50%;  
+            object-fit: cover;  
+            border: 3px solid var(--rosa);  
+            margin-bottom: 10px;  
+            background-color: white;
+        }  
+
+        h1 {  
+            font-family: 'Fredoka One', cursive;  
+            font-size: 2.2rem;  
+            margin: 10px 0;  
+            color: var(--marron);  
+            text-shadow: 2px 2px 0px var(--blanco);  
+        }  
+
+        header p {  
+            font-weight: 600;  
+            font-size: 1.1rem;  
+            opacity: 0.9;  
+        }  
+
+        .container {  
+            width: 90%;  
+            max-width: 500px;  
+            padding-bottom: 50px;  
+        }  
+
+        .section-title {  
+            font-family: 'Fredoka One', cursive;  
+            font-size: 1.5rem;  
+            margin: 35px 0 15px 5px;  
+            display: flex;  
+            align-items: center;  
+            gap: 10px;  
+        }  
+
+        /* --- TARJETAS --- */  
+        .card {  
+            background: var(--blanco);  
+            border-radius: 25px;  
+            padding: 20px;  
+            margin-bottom: 20px;  
+            border: 3px dashed var(--rosa);  
+            box-shadow: 0 8px 20px rgba(75, 54, 33, 0.08);  
+            transition: transform 0.2s ease;  
+        }  
+
+        .card:active {  
+            transform: scale(0.98);  
+        }  
+
+        .card-info h3 {  
+            margin: 0 0 5px 0;  
+            font-size: 1.3rem;  
+            font-family: 'Fredoka One', cursive;  
+        }  
+
+        .card-info p {  
+            margin: 0;  
+            font-size: 0.95rem;  
+            line-height: 1.4;  
+            opacity: 0.8;  
+        }  
+
+        .price-row {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            margin-top: 15px;  
+        }  
+
+        .price {  
+            font-family: 'Fredoka One', cursive;  
+            font-size: 1.4rem;  
+            color: var(--marron);  
+        }  
+
+        /* --- BOTÓN --- */  
+        .btn {  
+            background-color: var(--rosa);  
+            color: var(--marron);  
+            text-decoration: none;  
+            padding: 12px 25px;  
+            border-radius: 18px;  
+            font-weight: bold;  
+            font-size: 1rem;  
+            box-shadow: 0 4px 0px #efbbc8;  
+            transition: all 0.1s;  
+        }  
+
+        .btn:active {  
+            transform: translateY(3px);  
+            box-shadow: 0 1px 0px #efbbc8;  
+        }  
+
+        /* --- FOOTER --- */  
+        footer {  
+            background-color: var(--marron);  
+            color: var(--crema);  
+            width: 100%;  
+            padding: 40px 20px;  
+            text-align: center;  
+            box-sizing: border-box;  
+            border-top-left-radius: 40px;  
+            border-top-right-radius: 40px;  
+        }  
+
+        footer p {  
+            margin: 8px 0;  
+            font-size: 0.95rem;  
+        }  
+
+        .insta {  
+            color: var(--rosa);  
+            text-decoration: none;  
+            font-weight: bold;  
+        }  
+
+        .badge {  
+            background: #fff0f3;  
+            color: #d17a8e;  
+            padding: 4px 10px;  
+            border-radius: 10px;  
+            font-size: 0.7rem;  
+            font-weight: bold;  
+            margin-bottom: 8px;  
+            display: inline-block;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<header>  
+    <img src="https://i.ibb.co/BdWtrPR/tu-logo-real.png" class="logo" alt="Logo ñomñom">
+    <h1>Menú de Budines ñomñom</h1>  
+    <p>✨ Hechos con amor para endulzar tu día ✨</p>  
+</header>  
+
+<div class="container">  
+
+<h2 class="section-title">🍫 Los Chocolatosos</h2>  
+
+<div class="card">  
+    <div class="card-info">  
+        <span class="badge">EL MÁS PEDIDO</span>  
+        <h3>Marmolado con Chips</h3>  
+        <p>Vainilla y chocolate con una lluvia de chips fundentes.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.000</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20Marmolado%20con%20Chips">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<div class="card">  
+    <div class="card-info">  
+        <h3>Doble Chocolate</h3>  
+        <p>Masa de cacao intenso con trozos de chocolate real.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.500</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20Doble%20Chocolate">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<h2 class="section-title">🍊 Cítricos y Frutales</h2>  
+
+<div class="card">  
+    <div class="card-info">  
+        <span class="badge">NUEVO</span>  
+        <h3>Naranja Intenso</h3>  
+        <p>Súper aromático, hecho con jugo y ralladura natural.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.000</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20de%20Naranja">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<div class="card">  
+    <div class="card-info">  
+        <h3>Limón Glaseado</h3>  
+        <p>Equilibrio justo entre lo dulce y lo cítrico con glaseado.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.000</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20de%20Limón">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<div class="card">  
+    <div class="card-info">  
+        <h3>Banana y Nuez</h3>  
+        <p>Sabor natural con el toque crocante de nueces seleccionadas.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.500</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20de%20Banana%20y%20Nuez">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<div class="card">  
+    <div class="card-info">  
+        <h3>Carrot Cake</h3>  
+        <p>Increíblemente húmedo con especias y sabor único.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.500</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20de%20Zanahoria">Pedir 📲</a>  
+    </div>  
+</div>  
+
+<h2 class="section-title">🍦 Clásico</h2>  
+
+<div class="card">  
+    <div class="card-info">  
+        <h3>Vainilla Tradicional</h3>  
+        <p>El clásico de casa, esponjoso y perfecto para el mate.</p>  
+    </div>  
+    <div class="price-row">  
+        <span class="price">$7.000</span>  
+        <a class="btn" href="https://wa.me/5491158602204?text=Hola!%20Quiero%20el%20budín%20de%20Vainilla">Pedir 📲</a>  
+    </div>  
+</div>  
+
+</div>  
+
+<footer>  
+    <p>🛵 Entregas en: <b>Aldo Bonzi y Ciudad Evita</b></p>  
+    <p>📲 WhatsApp: 11 5860-2204</p>  
+    <p>📸 Instagram: <a href="https://instagram.com/nomnom.postres" class="insta" target="_blank">@nomnom.postres</a></p>  
+    <p style="opacity: 0.6; font-size: 0.7rem; margin-top: 20px;">© 2026 ñomñom - Hecho con amor</p>  
+</footer>  
+
+</body>  
+</html> 
