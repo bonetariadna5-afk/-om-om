@@ -3,8 +3,8 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>ñomñom - Menú de Budines</title>  
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">  
+    <title>ñomñom - Menú Premium</title>  
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">  
     <style>  
         :root {  
             --crema: #FDF5E6;  
@@ -12,6 +12,8 @@
             --rosa: #FFD1DC;  
             --rosa-hover: #ffb5c7;  
             --blanco: #ffffff;  
+            --gris-claro: #fcf8f2;
+            --dorado: #FFD700;
         }  
 
         body {  
@@ -20,114 +22,249 @@
             font-family: 'Quicksand', sans-serif;  
             background-color: var(--crema);  
             color: var(--marron);  
-            display: flex;  
-            flex-direction: column;  
-            align-items: center;  
         }  
 
-        header {  
-            text-align: center;  
-            padding: 40px 20px;  
-            width: 100%;  
-            box-sizing: border-box;  
-        }  
+        /* --- NAVBAR --- */
+        nav {
+            background-color: var(--blanco);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(75, 54, 33, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--marron);
+            text-decoration: none;
+        }
+        .nav-btn {
+            background-color: var(--marron);
+            color: var(--crema);
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
 
-        .logo {  
-            width: 120px;  
-            height: 120px;  
-            border-radius: 50%;  
-            object-fit: cover;  
-            border: 3px solid var(--rosa);  
-            margin-bottom: 10px;  
+        /* --- HERO BANNER --- */  
+        .hero {
+            background: linear-gradient(135deg, #e3a6b4 0%, var(--rosa) 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--marron);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-main-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--blanco);
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
             background-color: white;
-        }  
-
-        h1 {  
+        }
+        .hero h1 {  
             font-family: 'Fredoka One', cursive;  
-            font-size: 2.2rem;  
-            margin: 10px 0;  
-            color: var(--marron);  
+            font-size: 2.4rem;  
+            margin: 5px 0;  
             text-shadow: 2px 2px 0px var(--blanco);  
         }  
-
-        header p {  
-            font-weight: 600;  
+        .hero p {  
+            font-weight: 700;  
             font-size: 1.1rem;  
+            margin: 5px 0 15px 0;
             opacity: 0.9;  
         }  
+        .hero-tag {
+            background: var(--blanco);
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
 
+        /* --- CATEGORÍAS EN BURBUJAS --- */
+        .categories-container {
+            padding: 30px 15px 10px 15px;
+            text-align: center;
+        }
+        .section-main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+        .categories-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            scrollbar-width: none;
+        }
+        .categories-grid::-webkit-scrollbar { display: none; }
+        
+        .cat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--marron);
+            min-width: 75px;
+        }
+        .cat-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--blanco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 12px rgba(75, 54, 33, 0.06);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .cat-item:active .cat-icon {
+            border-color: var(--rosa);
+            transform: scale(0.95);
+        }
+        .cat-item span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        /* --- GRILLA DE PRODUCTOS --- */  
         .container {  
-            width: 90%;  
-            max-width: 500px;  
-            padding-bottom: 50px;  
+            width: 92%;  
+            max-width: 800px;  
+            margin: 0 auto;
+            padding-bottom: 40px;  
         }  
-
         .section-title {  
             font-family: 'Fredoka One', cursive;  
-            font-size: 1.5rem;  
-            margin: 35px 0 15px 5px;  
+            font-size: 1.4rem;  
+            margin: 40px 0 20px 5px;  
             display: flex;  
             align-items: center;  
             gap: 10px;  
         }  
-
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
         .card {  
             background: var(--blanco);  
-            border-radius: 25px;  
+            border-radius: 24px;  
             padding: 20px;  
-            margin-bottom: 20px;  
-            border: 3px dashed var(--rosa);  
-            box-shadow: 0 8px 20px rgba(75, 54, 33, 0.08);  
+            border: 1px solid rgba(75, 54, 33, 0.08);  
+            box-shadow: 0 6px 15px rgba(75, 54, 33, 0.04);  
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             transition: transform 0.2s ease;  
         }  
+        
+        /* DISEÑO ESPECIAL PARA LA SECCIÓN PREMIUM */
+        .card.special-card {
+            border: 2px solid #f3c1cf;
+            background: linear-gradient(180deg, #fffcfd 0%, var(--blanco) 100%);
+            box-shadow: 0 8px 20px rgba(243, 193, 207, 0.2);
+        }
 
         .card:active {  
             transform: scale(0.98);  
         }  
-
         .card-info h3 {  
-            margin: 0 0 5px 0;  
-            font-size: 1.3rem;  
+            margin: 0 0 6px 0;  
+            font-size: 1.2rem;  
             font-family: 'Fredoka One', cursive;  
         }  
-
         .card-info p {  
             margin: 0;  
-            font-size: 0.95rem;  
+            font-size: 0.9rem;  
             line-height: 1.4;  
-            opacity: 0.8;  
+            opacity: 0.75;  
         }  
-
         .price-row {  
             display: flex;  
             justify-content: space-between;  
             align-items: center;  
-            margin-top: 15px;  
+            margin-top: 20px;  
         }  
-
         .price {  
             font-family: 'Fredoka One', cursive;  
-            font-size: 1.4rem;  
-            color: var(--marron);  
+            font-size: 1.3rem;  
         }  
 
+        /* --- BOTÓN --- */  
         .btn {  
             background-color: var(--rosa);  
             color: var(--marron);  
             text-decoration: none;  
-            padding: 12px 25px;  
-            border-radius: 18px;  
-            font-weight: bold;  
-            font-size: 1rem;  
-            box-shadow: 0 4px 0px #efbbc8;  
+            padding: 10px 20px;  
+            border-radius: 14px;  
+            font-weight: 700;  
+            font-size: 0.9rem;  
+            box-shadow: 0 3px 0px #efbbc8;  
             transition: all 0.1s;  
         }  
-
         .btn:active {  
-            transform: translateY(3px);  
+            transform: translateY(2px);  
             box-shadow: 0 1px 0px #efbbc8;  
         }  
 
+        /* --- NUESTRO COMPROMISO --- */
+        .promise-section {
+            background-color: var(--blanco);
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 30px;
+            margin: 30px 15px 40px 15px;
+            box-shadow: 0 4px 15px rgba(75, 54, 33, 0.03);
+        }
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .promise-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .promise-icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .promise-item h4 {
+            margin: 5px 0 2px 0;
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.95rem;
+        }
+        .promise-item p {
+            margin: 0;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* --- FOOTER --- */  
         footer {  
             background-color: var(--marron);  
             color: var(--crema);  
@@ -135,166 +272,227 @@
             padding: 40px 20px;  
             text-align: center;  
             box-sizing: border-box;  
-            border-top-left-radius: 40px;  
-            border-top-right-radius: 40px;  
+            border-top-left-radius: 35px;  
+            border-top-right-radius: 35px;  
         }  
-
         footer p {  
             margin: 8px 0;  
             font-size: 0.95rem;  
         }  
-
         .insta {  
             color: var(--rosa);  
             text-decoration: none;  
             font-weight: bold;  
         }  
-
         .badge {  
             background: #fff0f3;  
             color: #d17a8e;  
             padding: 4px 10px;  
             border-radius: 10px;  
-            font-size: 0.7rem;  
+            font-size: 0.68rem;  
             font-weight: bold;  
             margin-bottom: 8px;  
             display: inline-block;  
         }  
+        .badge.special-badge {
+            background: #fff9e6;
+            color: #b38f00;
+        }
     </style>  
 </head>  
 <body>  
 
-<header>  
-    <img src="https://i.ibb.co/BdWtrPR/tu-logo-real.png" class="logo" alt="Logo ñomñom">
-    <h1>Menú de Budines ñomñom</h1>  
-    <p>✨ Hechos con amor para endulzar tu día ✨</p>  
+<nav>
+    <a href="#" class="nav-logo">ñomñom</a>
+    <a href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20coordinar%20un%20pedido" class="nav-btn">PEDIR AHORA</a>
+</nav>
+
+<header class="hero">  
+    <img src="https://i.ibb.co/BdWtrPR/tu-logo-real.png" class="hero-main-img" alt="Logo ñomñom">
+    <h1>ñomñom postres</h1>  
+    <p>Budines Caseros Extra Húmedos</p>  
+    <span class="hero-tag">📍 Coordinamos Punto de Encuentro</span>
 </header>  
+
+<div class="categories-container">
+    <h2 class="section-main-title">¿Qué te provoca hoy?</h2>
+    <div class="categories-grid">
+        <a href="#especiales" class="cat-item">
+            <div class="cat-icon">✨</div>
+            <span>Especiales</span>
+        </a>
+        <a href="#chocolatosos" class="cat-item">
+            <div class="cat-icon">🍫</div>
+            <span>Chocolates</span>
+        </a>
+        <a href="#citricos" class="cat-item">
+            <div class="cat-icon">🍊</div>
+            <span>Frutales</span>
+        </a>
+        <a href="#clasicos" class="cat-item">
+            <div class="cat-icon">🍦</div>
+            <span>Clásicos</span>
+        </a>
+    </div>
+</div>
 
 <div class="container">  
 
-<h2 class="section-title">🍫 Los Chocolatosos</h2>  
+    <h2 class="section-title" id="especiales">✨ Los Especiales</h2>  
+    <div class="products-grid">
+        <div class="card special-card">  
+            <div class="card-info">  
+                <span class="badge special-badge">EL REY DE LA CASA 👑</span>  
+                <h3>Oreo Premium</h3>  
+                <p>Masa súper suave y húmeda con trozos generosos y crocantes de galletitas Oreo auténticas.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$8.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20Especial%20de%20Oreo">Pedir 📲</a>  
+            </div>  
+        </div>  
+    </div>
 
-<div class="card">  
-    <div class="card-info">  
-        <span class="badge">NUEVO 🔥</span>  
-        <h3>Oreo</h3>  
-        <p>Masa súper suave con trozos generosos de galletitas Oreo.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$8.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Oreo">Pedir 📲</a>  
-    </div>  
+    <h2 class="section-title" id="chocolatosos">🍫 Los Chocolatosos</h2>  
+    <div class="products-grid">
+        <div class="card">  
+            <div class="card-info">  
+                <span class="badge">EL MÁS PEDIDO</span>  
+                <h3>Marmolado con Chips</h3>  
+                <p>Vainilla y chocolate con una lluvia de chips fundentes.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20Marmolado%20con%20Chips">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Doble Chocolate</h3>  
+                <p>Masa de cacao intenso con trozos de chocolate real.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.500</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20Doble%20Chocolate">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Chocolate</h3>  
+                <p>Puro chocolate, húmedo y esponjoso. Para fanáticos.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Chocolate%20Solo">Pedir 📲</a>  
+            </div>  
+        </div>  
+    </div>
+
+    <h2 class="section-title" id="citricos">🍊 Cítricos y Frutales</h2>  
+    <div class="products-grid">
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Banana</h3>  
+                <p>Sabor natural a banana madura, súper húmedo y casero.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Banana%20Solo">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Banana y Nuez</h3>  
+                <p>Sabor natural con el toque crocante de nueces seleccionadas.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.500</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Banana%20y%20Nuez">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <span class="badge">NUEVO</span>  
+                <h3>Naranja Intenso</h3>  
+                <p>Súper aromático, hecho con jugo y ralladura natural.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Naranja">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Limón Glaseado</h3>  
+                <p>Equilibrio justo entre lo dulce y lo cítrico con glaseado.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Limón">Pedir 📲</a>  
+            </div>  
+        </div>  
+
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Carrot Cake</h3>  
+                <p>Increíblemente húmedo con especias y sabor único.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.500</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Zanahoria">Pedir 📲</a>  
+            </div>  
+        </div>  
+    </div>
+
+    <h2 class="section-title" id="clasicos">🍦 Clásico</h2>  
+    <div class="products-grid">
+        <div class="card">  
+            <div class="card-info">  
+                <h3>Vainilla Tradicional</h3>  
+                <p>El clásico de casa, esponjoso y perfecto para el mate.</p>  
+            </div>  
+            <div class="price-row">  
+                <span class="price">$7.000</span>  
+                <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Vainilla">Pedir 📲</a>  
+            </div>  
+        </div>  
+    </div>
+
 </div>  
 
-<div class="card">  
-    <div class="card-info">  
-        <span class="badge">EL MÁS PEDIDO</span>  
-        <h3>Marmolado con Chips</h3>  
-        <p>Vainilla y chocolate con una lluvia de chips fundentes.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20Marmolado%20con%20Chips">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Doble Chocolate</h3>  
-        <p>Masa de cacao intenso con trozos de chocolate real.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.500</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20Doble%20Chocolate">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Chocolate</h3>  
-        <p>Puro chocolate, húmedo y esponjoso. Para fanáticos.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Chocolate%20Solo">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<h2 class="section-title">🍊 Cítricos y Frutales</h2>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Banana</h3>  
-        <p>Sabor natural a banana madura, súper húmedo y casero.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Banana%20Solo">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Banana y Nuez</h3>  
-        <p>Sabor natural con el toque crocante de nueces seleccionadas.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.500</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Banana%20y%20Nuez">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <span class="badge">NUEVO</span>  
-        <h3>Naranja Intenso</h3>  
-        <p>Súper aromático, hecho con jugo y ralladura natural.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Naranja">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Limón Glaseado</h3>  
-        <p>Equilibrio justo entre lo dulce y lo cítrico con glaseado.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Limón">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Carrot Cake</h3>  
-        <p>Increíblemente húmedo con especias y sabor único.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.500</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Zanahoria">Pedir 📲</a>  
-    </div>  
-</div>  
-
-<h2 class="section-title">🍦 Clásico</h2>  
-
-<div class="card">  
-    <div class="card-info">  
-        <h3>Vainilla Tradicional</h3>  
-        <p>El clásico de casa, esponjoso y perfecto para el mate.</p>  
-    </div>  
-    <div class="price-row">  
-        <span class="price">$7.000</span>  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=5491158602204&text=Hola!%20Quiero%20el%20budín%20de%20Vainilla">Pedir 📲</a>  
-    </div>  
-</div>  
-
-</div>  
+<div class="promise-section">
+    <h2 class="section-main-title">Cómo Trabajamos</h2>
+    <div class="promise-grid">
+        <div class="promise-item">
+            <div class="promise-icon">📍</div>
+            <h4>Puntos de Encuentro</h4>
+            <p>Aldo Bonzi, San Justo y Ciudad Evita</p>
+        </div>
+        <div class="promise-item">
+            <div class="promise-icon">🥚</div>
+            <h4>Materia Prima</h4>
+            <p>100% Calidad y Fresco</p>
+        </div>
+        <div class="promise-item">
+            <div class="promise-icon">🥣</div>
+            <h4>Hecho a Mano</h4>
+            <p>Cuidado artesanal</p>
+        </div>
+        <div class="promise-item">
+            <div class="promise-icon">✨</div>
+            <h4>Súper Húmedos</h4>
+            <p>Receta única de casa</p>
+        </div>
+    </div>
+</div>
 
 <footer>  
-    <p>🛵 Entregas en: <b>Aldo Bonzi, San Justo y Ciudad Evita</b></p>  
+    <p>🤝 Puntos de encuentro en: <b>Aldo Bonzi, San Justo y Ciudad Evita</b></p>  
     <p>📲 WhatsApp: 11 5860-2204</p>  
     <p>📸 Instagram: <a href="https://instagram.com/nomnom.postres" class="insta" target="_blank">@nomnom.postres</a></p>  
     <p style="opacity: 0.6; font-size: 0.7rem; margin-top: 20px;">© 2026 ñomñom - Hecho con amor</p>  
